@@ -2,7 +2,7 @@
 
 The implement is totally from https://github.com/avsegal/gicp. 
 
-I warp c++ code to a python. Suppose I am in a conda environment, env in Makefile.
+I warp c++ code to a python. Suppose I am in a conda environment.
 
 ## Installation
 
@@ -16,14 +16,6 @@ I warp c++ code to a python. Suppose I am in a conda environment, env in Makefil
 
 2. compile ANN
 
-    Modify the Makefile, change  `CONDA_PREFIX`  in line 1 to your conda prefix path.
-
-    ```bash
-    CONDA_PREFIX = /GPFS/rhome/yifanlu/miniconda3/envs/disco # change to your envs
-    INC = $(shell ${CONDA_PREFIX}/bin/python3 -m pybind11 --includes)
-    ...
-    ```
-
     Then run the command
 
     ```
@@ -32,12 +24,15 @@ I warp c++ code to a python. Suppose I am in a conda environment, env in Makefil
     ```
 
 3. compile the project
-
-    after you specify the conda environment in Makefile, go to the root dir and call make command.
     ```
     cd ..
+    vim Makefile
+    ```
+    Modify the first line in `./Makefile`. Change  `CONDA_PREFIX`  in line 1 to your conda prefix path. and run
+    ```
     make
     ```
+
     then it should generate warp_gicp.so
 
 
